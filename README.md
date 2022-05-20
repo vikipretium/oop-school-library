@@ -31,9 +31,6 @@ To get a local copy up and running follow these simple example steps.
 - [Git](https://git-scm.com/downloads)
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 
-### Usage
-
-
 #### Clone this repository
 
 ```bash
