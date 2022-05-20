@@ -2,6 +2,11 @@
 
 # School Library
 
+> The **School Library App** is a tool to keep records of both books and patrons of a school library. The app offers a convenient way to:
+> - Add records of new students or teachers.
+> - Add records of new books.
+> - Save records of who borrowed a given book and when.
+
 ## Built With
 
 - Major languages (Ruby)
@@ -35,12 +40,6 @@ To get a local copy up and running follow these simple example steps.
 git clone git@github.com:vikipretium/oop-school-library.git
 
 cd oop-school-library
-```
-
-#### Run project
-
-```bash
-$ ruby 
 ```
 
 ## Author
