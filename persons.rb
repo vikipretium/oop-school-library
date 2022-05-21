@@ -1,3 +1,6 @@
+require './nameable'
+require './rentals'
+
 class Person < Nameable
   # constructors and instance vars
   def initialize(age, name = 'Unknown', parent_permission: true)
