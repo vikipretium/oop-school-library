@@ -6,6 +6,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   # getters and setter
@@ -14,6 +15,12 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def person_rentals(rental)
+    rental.instance_of?(Rental) && !@rentals.include?(rental) &&
+      @rentals.push(rental)
+    @rentals
   end
 
   # private method is_of_age?
