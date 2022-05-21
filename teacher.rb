@@ -3,8 +3,8 @@ require './person'
 
 class Teacher < Person
   # constructor specilization
-  def initialize(age, specilization, name = 'Unknown', parent_permission: true)
-    super(age, name, parent_permission)
+  def initialize(age, specialization, name = 'Unknown')
+    super(age, name, true)
     @specilization = specilization
   end
 
