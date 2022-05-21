@@ -1,4 +1,3 @@
-
 require './person'
 
 class Student < Person
@@ -20,5 +19,4 @@ class Student < Person
     )
     @classroom
   end
-  
 end
