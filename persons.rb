@@ -1,6 +1,7 @@
-class Person
+class Person < Nameable
   # constructors and instance vars
   def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
     @id = Random.rand(1..100)
     @name = name
     @age = age
@@ -10,6 +11,10 @@ class Person
   # getters and setter
   attr_reader :id
   attr_accessor :name, :age
+
+  def correct_name
+    @name
+  end
 
   # private method is_of_age?
 
