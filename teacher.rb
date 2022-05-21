@@ -5,7 +5,7 @@ class Teacher < Person
   # constructor specilization
   def initialize(age, specialization, name = 'Unknown')
     super(age, name, true)
-    @specilization = specilization
+    @specialization = specialization
   end
 
   # override can_use_services?
