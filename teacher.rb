@@ -3,9 +3,9 @@ require './person'
 
 class Teacher < Person
   # constructor specilization
-  def initialize(age, specilization, name = 'Unknown', parent_permission: true)
-    super(age, name, parent_permission)
-    @specilization = specilization
+  def initialize(age, specialization, name = 'Unknown')
+    super(age, name, true)
+    @specialization = specialization
   end
 
   # override can_use_services?
