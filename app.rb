@@ -1,69 +1,60 @@
-require './teacher'
-require './student'
-require './book'
-require './rentals'
+require './display'
+require './user_interaction'
+
 # app class
 class App
-  attr_reader :book_list, :people_list
+
+  attr_reader :CreateClass
 
   def initialize
-    @book_list = []
-    @people_list = []
-    @rental_list = []
+    @user_interaction = UserInteraction.new
+    @create_class = @user_interaction.create_class
   end
 
-  def add_book(title, author)
-    book = Book.new(title, author)
-    @book_list.push(book)
+  def display_app
+    puts "\nPlease choose an option by enter a number:"
+    puts ['1 - List all books', '2 - List all people', '3 - Create a person',
+          '4 - Create a book', '5 - Create a rental', '6 - List all rentals for a given person id',
+          '7 - Exit']
   end
 
-  def add_student(age, name, parent_permission)
-    student = Student.new(age, nil, name, parent_permission: parent_permission)
-    @people_list.push({ value: student, type: 'Student' })
+  def choose_action
+    decision = gets.chomp
+    puts 'please choose of the list' unless '1234567'.include?(decision)
+    decision == '7' && exit_program
+    methods = [
+      method(:display_books), method(:display_people), method(:create_people),
+      method(:create_book), method(:handle_rental), method(:list_rental_for_person)
+    ]
+    '123456'.include?(decision) && methods[decision.to_i - 1].call
   end
 
-  def add_teacher(age, name, specialization)
-    teacher = Teacher.new(age, specialization, name)
-    @people_list.push({ value: teacher, type: 'Teacher' })
-  end
-
-  def add_rental(date, book_num, person_num)
-    book = @book_list[book_num - 1]
-    person = @people_list[person_num - 1][:value]
-    rental = Rental.new(date, book, person)
-    @rental_list.push(rental)
+  def exit_program
+    puts 'Thank you for using this app!'
+    exit
   end
 
   def display_books
-    @book_list.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    Display.new.display_books(@create_class.book_list)
   end
-
+  
   def display_people
-    @people_list.each do |person|
-      puts "[#{person[:type]}] Name: #{person[:value].name}, ID: #{person[:value].id}, Age: #{person[:value].age}"
-    end
+    Display.new.display_people(@create_class.people_list)
   end
 
-  def display_rental_for_id(id)
-    @rental_list.each do |rental|
-      rental.person.id == id && (
-        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
-      )
-    end
+  def create_people 
+    @user_interaction.create_people
   end
 
-  def choose_person_to_create_rental
-    puts 'Select a person from the following list by number (not id)'
-    @people_list.each_with_index do |person, i|
-      puts "#{i + 1}) [#{person[:type]}] Name: #{person[:value].name},"
-      + " ID: #{person[:value].id}, Age: #{person[:value].age}"
-    end
+  def create_book
+    @user_interaction.create_book
   end
 
-  def choose_book_to_create_rental
-    puts 'Select a book from the following list by number'
-    @book_list.each_with_index do |book, i|
-      puts "#{i + 1}) Title: \"#{book.title}\", Author: #{book.author}"
-    end
+  def handle_rental
+    @user_interaction.handle_rental
+  end
+
+  def list_rental_for_person
+    Display.new.display_rental_for_id(@create_class.rental_list)
   end
 end
