@@ -3,8 +3,7 @@ require './user_interaction'
 
 # app class
 class App
-
-  attr_reader :CreateClass
+  attr_reader :create_class
 
   def initialize
     @user_interaction = UserInteraction.new
@@ -37,12 +36,12 @@ class App
   def display_books
     Display.new.display_books(@create_class.book_list)
   end
-  
+
   def display_people
     Display.new.display_people(@create_class.people_list)
   end
 
-  def create_people 
+  def create_people
     @user_interaction.create_people
   end
 
