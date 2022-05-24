@@ -3,6 +3,7 @@
 # School Library
 
 > The **School Library App** is a tool to keep records of both books and patrons of a school library. The app offers a convenient way to:
+>
 > - Add records of new students or teachers.
 > - Add records of new books.
 > - Save records of who borrowed a given book and when.
@@ -47,6 +48,11 @@ cd oop-school-library
 - Twitter: [@vikipretium](https://twitter.com/vikipretium)
 - LinkedIn: [vikipretium](https://linkedin.com/in/vikipretium)
 
+👤 **Abenezer Tilahun**
+
+- GitHub: [@Abenezer-Tilahun](https://github.com/Abenezer-Tilahun)
+- Twitter: [@AbenezerTilah11](https://twitter.com/AbenezerTilah11)
+- LinkedIn: [Abenezer Tilahun](https://www.linkedin.com/in/abenezer-tilahun/)
 
 Contributions, issues, and feature requests are welcome!
 
